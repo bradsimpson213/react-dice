@@ -8,7 +8,8 @@ const DiceRoll = () => {
     const [die2, setDie2] = useState('two');
     const [rollValue, setRollValue] = useState(3);
     const [rolling, setRolling] = useState(false);   
- 
+
+
     const roll = () => {
         const num1 = Math.floor(Math.random() * sides.length);
         const num2 = Math.floor(Math.random() * sides.length);
@@ -16,8 +17,7 @@ const DiceRoll = () => {
         const dieRoll2 = sides[num2];
         setDie1(dieRoll1);
         setDie2(dieRoll2);
-        const diceValue = num1 + num2 + 2
-        setRollValue(diceValue)
+        setRollValue(num1 + num2 + 2)
         setRolling(true)
 
         setTimeout(()=> {
@@ -26,8 +26,11 @@ const DiceRoll = () => {
     };
 
     useEffect(() => {
-        roll();
-    },[])
+        const timer= setTimeout(()=> {
+            setRolling(false)
+        }, 1000)
+        return clearTimeout(timer)
+    }, [rollValue]);
  
     
     return (
