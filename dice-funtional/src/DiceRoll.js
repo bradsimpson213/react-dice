@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Die from "./Die";
 import "./DiceRoll.css";
 
@@ -9,12 +9,6 @@ const DiceRoll = () => {
     const [rollValue, setRollValue] = useState(3);
     const [rolling, setRolling] = useState(false);   
  
-   
-
-    // componentDidMount() {
-    //     this.roll();
-    // };
-
     const roll = () => {
         const num1 = Math.floor(Math.random() * sides.length);
         const num2 = Math.floor(Math.random() * sides.length);
@@ -22,12 +16,18 @@ const DiceRoll = () => {
         const dieRoll2 = sides[num2];
         setDie1(dieRoll1);
         setDie2(dieRoll2);
-        setRollValue(dieRoll1 + dieRoll2 + 2)
+        const diceValue = num1 + num2 + 2
+        setRollValue(diceValue)
+        setRolling(true)
 
         setTimeout(()=> {
-            setRolling(!rolling)
+            setRolling(false)
         }, 1000)
     };
+
+    useEffect(() => {
+        roll();
+    },[])
  
     
     return (

@@ -1,10 +1,10 @@
 import "./Die.css";
 
-const Die = () => {
+const Die = (props) => {
     return(
         <div>
-            <i className={`Die fas fa-dice-${ this.props.face } 
-                ${ this.props.shake ? 'shake-dice' : '' }`} />
+            <i className={`Die fas fa-dice-${ props.face } 
+                ${ props.shake ? 'shake-dice' : '' }`} />
         </div>
     );
 };
