@@ -11,10 +11,6 @@ class DiceRoll extends Component {
         this.state = { die1: 'one', die2: "two", rollValue: 3, rolling: false };
     };
 
-    componentDidMount() {
-        this.roll();
-    };
-
     roll = () => {
         const num1 = Math.floor(Math.random() * this.props.sides.length);
         const num2 = Math.floor(Math.random() * this.props.sides.length);
