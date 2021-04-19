@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Die from "./Die";
-import "./DieRoll.css";
+import "./DiceRoll.css";
 
 class DiceRoll extends Component {
     static defaultProps = {
@@ -11,6 +11,10 @@ class DiceRoll extends Component {
         this.state = {die1: 'one', die2: "two", rollValue: 3};
     };
 
+    componentDidMount() {
+        this.roll();
+    }
+
     roll = () => {
         const num1 = Math.floor(Math.random() * this.props.sides.length);
         const num2 = Math.floor(Math.random() * this.props.sides.length);
@@ -18,10 +22,10 @@ class DiceRoll extends Component {
         const dieRoll2 = this.props.sides[num2];
         this.setState({die1: dieRoll1, die2: dieRoll2, rollValue: (num1 + num2 + 2) })
     };
-
+ 
     render(){
         return (
-            <div>
+            <div className="dice-roll-container">
                 <div className="dice-container">
                     <Die face={this.state.die1} />
                     <Die face={this.state.die2} />
