@@ -25,6 +25,13 @@ const DiceRoll = () => {
         }, 1000)
     };
 
+    // this useEffect will call roll on the first render only
+    useEffect(() => {
+        roll()
+        // eslint-disable-next-line
+    }, [])
+
+    // this useEffect will set a timeout for the dice to roll each time rollValue changes
     useEffect(() => {
         const timer= setTimeout(()=> {
             setRolling(false)
