@@ -30,16 +30,7 @@ const DiceRoll = () => {
         roll()
         // eslint-disable-next-line
     }, [])
-
-    // this useEffect will set a timeout for the dice to roll each time rollValue changes
-    useEffect(() => {
-        const timer= setTimeout(()=> {
-            setRolling(false)
-        }, 1000)
-        return clearTimeout(timer)
-    }, [rollValue]);
  
-    
     return (
         <div className="dice-roll-container">
             <div className="dice-container">
@@ -51,6 +42,7 @@ const DiceRoll = () => {
                 />
             </div>
             <div className="roll-text"
+            // the inline style will change the opacity of the text from visible to invisible when "rolling" and then back when the roll is over
                 style={ rolling ? { opacity: '0', transition: 'None' } : 
                     { opacity: '1', transition: 'opacity 1.0s' }}
             >
