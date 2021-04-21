@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import DiceRoll from './DiceRoll';
 import './App.css';
 
+// TODO: Refactor this component to be a functional component
+
 class App extends Component {
   render() {
     return (

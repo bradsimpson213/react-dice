@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "./Die.css";
 
+// TODO: Refactor this component to be a functional component
+
 class Die extends Component {
     render(){
         return (

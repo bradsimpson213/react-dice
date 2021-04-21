@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import Die from "./Die";
 import "./DiceRoll.css";
 
+// TODO: Refactor this component to be a functional component
+
 class DiceRoll extends Component {
+    // STATIC DEFAULT PROPS: remember from learning about classes, static attributes 
+    // are created on the class, not instances of the class.  
     static defaultProps = {
         sides: ["one", "two", "three", "four", "five", "six"]
     };
